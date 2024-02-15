@@ -1,0 +1,119 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="header_footer.css">
+    
+    <style>
+      .image-container {
+        display: none;
+      }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <a href="index.html" class="logo">Comment Analyzer </a> 
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+         <!-- <ul class="nav-links">
+                 <li><a class="active" href="#">HomePage</a></li>
+                 <li><a href="Download.html">Download</a></li>
+                 <li><a href="Features.html">Features</a></li>
+                 <li><a href="https://blog.ressurectedbird.co.in/">Blog</a></li>
+                 <!-- <li><a href="watchface.html">WatchFace</a></li> -->
+                 <!-- <li><a href="Team.html">Team</a></li> -->
+         <!-- </ul> --> -->
+     </nav>  
+
+
+
+    <div class="search-container">
+        <form action="/navigate" method="get">
+            <label  for="url">Enter URL:</label>
+            <br>
+            <input id="urlbox" type="url" id="url" size="60" name="url" placeholder="https://example.com" required>
+            <br><br>
+            <input class="subbuttion" type="submit" value="Search Comments">
+        </form>
+    </div>
+    <h3>Select Categories</h3>
+    <div class="filter">
+        <div class="checkbox-container">
+            <label>
+                <input type="checkbox" name="Positive" for="Positive" id="Positive" class="checkbox" onchange="toggleDiv(1)"> Positive Feedback
+              </label>
+              <label>
+                <input type="checkbox" name="Criticism" for="Criticism" id="Criticism" class="checkbox" onchange="toggleDiv(2)"> Constructive Criticism
+              </label>
+              <label>
+                <input type="checkbox" name="Questions" for="Questions" id="Questions" class="checkbox" onchange="toggleDiv(3)"> Questions
+              </label>
+              <label>
+                <input type="checkbox" name="Spam" for="Spam" id="Spam" class="checkbox" onchange="toggleDiv(4)"> Spam
+              </label>
+              <label>
+                <input type="checkbox" name="Trolling" for="Trolling" id="Trolling" class="checkbox" onchange="toggleDiv(5)"> Trolling
+              </label>
+              <label>
+                <input type="checkbox" name="Fan" for="Fan" id="Fan" class="checkbox" onchange="toggleDiv(6)"> Fan Comments
+              </label>
+              <label>
+                <input type="checkbox" name="Hate" for="Hate" id="Hate" class="checkbox" onchange="toggleDiv(7)"> Hate Speech
+              </label>
+              <label>
+                <input type="checkbox" name="Technical" for="Technical" id="Technical" class="checkbox" onchange="toggleDiv(8)"> Technical Issues
+              </label>
+              <label>
+                <input type="checkbox" name="Random" for="Random" id="Random" class="checkbox" onchange="toggleDiv(9)"> Random/Off-Topic
+              </label>
+              <label>
+                <input type="checkbox" name="Collaboration" for="Collaboration" id="Collaboration" class="checkbox" onchange="toggleDiv(10)"> Collaboration Requests
+
+              </label>
+        </div>
+
+    </div>
+
+
+    
+        <div class="content-container" id="content1">
+            <p>Content for Div 1</p>
+          </div>
+          <div class="content-container" id="content2">
+            <p>Content for Div 2</p>
+          </div>
+          <div class="content-container" id="content3">
+            <p>Content for Div 3</p>
+          </div>
+          <div class="content-container" id="content4">
+            <p>Content for Div 4</p>
+          </div>
+          <div class="content-container" id="content5">
+            <p>Content for Div 5</p>
+          </div>
+          <div class="content-container" id="content6">
+            <p>Content for Div 6</p>
+          </div>
+          <div class="boxchild content-container" id="content7">
+            <h2>Positive Feedback            </h2>
+            <p>Compliments about the content.
+                Expressions of enjoyment or entertainment.
+                
+                </p>
+        </div>
+    
+    
+      
+    
+      <script src="index.js"></script>
+
+
+    
+</body>
+</html>
