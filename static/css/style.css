@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.search-container {
+    margin: 60px auto;
+    text-align: center;
+}
+
+
+input[type=url] {
+    padding: 10px;
+    font-size: 16px;
+}
+
+input[type=submit] {
+    padding: 10px 20px;
+    font-size: 16px;
+    width: 200px;
+    font-size: large;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+/*Filter code */
+
+
+.filter-container {
+  border: 5px solid #ccc;
+  padding: 20px;
+  text-align: center;
+  margin: 0px 30%;
+  background-color: #FFFFFF;
+}
+
+h2 {
+  color: #00539C; /* Header text color */
+}
+
+.checkbox-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.checkbox-container label {
+  margin-right: 30px;
+  color: #00539C;
+  padding: 3px;
+  width: 200px; /* Set a fixed width for the labels */
+}
+.checkbox-container label:hover{
+  background-color: #00539C;
+  color: white;
+  /* font-size: large; */
+}
+.checkbox-container input[type="checkbox"] {
+  margin: 0 10px;
+ background-color: #00539C;
+}
+
+
+
+
+
+
+
+
+/*Filter code */
+
+/* content */
+.box-container {
+  display: flex;
+  /* width: 100%; */
+  flex-wrap: wrap;
+}
+
+.box {
+  width: 80%;
+  display: none;
+  height: 200px;
+  margin: 40px 10% 40px 10%;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  cursor: pointer;
+  transition: width 0.3s;
+}
+
+.box:hover {
+  border: 2px solid forestgreen;
+}
+
+.box-header {
+  background-color: #00539C;
+  color: #FFFFFF;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.box-content {
+  padding: 10px;
+  overflow-y: auto;
+  max-height: 150px; /* Adjust the max-height as needed */
+}
+/* content */
+
