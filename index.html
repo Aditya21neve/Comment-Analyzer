@@ -26,16 +26,15 @@
 
 
 
-    <div class="search-container">
-        <form action="/navigate" method="get">
-            <label  for="url">Enter URL:</label>
+  <div class="search-container">
+        <form action="/get_comments" method="post">
+            <label for="url">Enter YouTube Video URL:</label>
             <br>
-            <input id="urlbox" type="url" id="url" size="60" name="url" placeholder="https://example.com" required>
+            <input id="urlbox" type="url" id="url" size="60" name="url" placeholder="https://www.youtube.com/watch?v=VIDEO_ID" required>
             <br><br>
             <input class="subbuttion" type="submit" value="Search Comments">
         </form>
     </div>
-<div>
  <!-- Filter code  -->
 
 
@@ -222,7 +221,8 @@
 </div>
 <!--  -->
 
-<!-- Content  -->
+
+
 
     <script src="index.js"></script>
 </body>
