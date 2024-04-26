@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Analyzer</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/header_footer.css">
+    
+    <style>
+      .image-container {
+        display: none;
+      }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <a href="index.html" class="logo">Comment Analyzer </a> 
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+
+     </nav>  
+
+
+
+<form action="/sort-videos" method="post">
+<div class="filter-container">
+  <h2>Filter</h2>
+  <div class="checkbox-container">
+      <input type="checkbox" id="fanComments" name="fanComments" value="fanComments" data-target="box6">
+      <label for="fanComments">Fan Comments</label>
+
+      <input type="checkbox" id="hateSpeech" name="hateSpeech" value="hateSpeech" data-target="box7">
+      <label for="hateSpeech">Hate Speech</label>
+      
+  </div>
+  <div class="checkbox-container">
+    <input type="checkbox" id="positive" name="positive" value="positive" data-target="box1">
+    <label for="positive">Positive</label>
+
+    <input type="checkbox" id="questions" name="questions" value="questions" data-target="box3">
+    <label for="questions">Questions</label>
+    
+</div>
+<div class="checkbox-container">
+  <input type="checkbox" id="spam" name="spam" value="spam" data-target="box4">
+  <label for="spam">Spam</label>
+
+  <input type="checkbox" id="suggestions" name="suggestions" value="suggestions" data-target="box11">
+  <label for="suggestions">Suggestions</label>
+  
+</div>
+<input class="subbuttion" type="submit" value="Search Comments">
+</div>
+
+</form>
+ 
+ 
+
+
+
+ {% for category, comments in category_comments %}
+<div class="box-container">
+    <div class="box" id="{{ category }}">
+        <div class="box-header">{{ category.capitalize() }}</div>
+        <div class="box-content">
+            {% for comment in comments %}
+            <p>{{ comment }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endfor %}
+{#
+<!-- Filter code  -->
+
+<!-- Content  -->
+
+<!-- 
+
+<div class="box-container">
+  
+  <div class="box" id="box1" onclick="openFloatingWindow('box1')">
+      <div class="box-header"> Positive Feedback</div>
+      <div class="box-content">
+  
+         
+      </div>
+  </div>
+</div>
+
+<div class="box-container">
+  
+  <div class="box" id="box3">
+      <div class="box-header">Questions</div>
+      <div class="box-content">
+      {% for category, comments in category_comments.items() %}
+<div class="box-container">
+    <div class="box" id="{{ category }}">
+        <div class="box-header">{{ category.capitalize() }}</div>
+        <div class="box-content">
+            {% for comment in comments %}
+            <p>{{ comment }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endfor %}
+         
+      </div>
+  </div>
+</div>
+
+<div class="box-container">
+  
+  <div class="box" id="box4">
+      <div class="box-header">Spam</div>
+      <div class="box-content">
+  
+         
+      </div>
+  </div>
+</div>
+
+<div class="box-container">
+  
+  <div class="box" id="box6">
+      <div class="box-header">Fan Comments</div>
+      <div class="box-content">
+  
+         
+      </div>
+  </div>
+</div>
+
+<div class="box-container">
+  
+  <div class="box" id="box7">
+      <div class="box-header">Hate Speech</div>
+      <div class="box-content">
+  
+         
+      </div>
+  </div>
+</div>
+
+<div class="box-container">
+  
+  <div class="box" id="box11">
+      <div class="box-header">Suggestions</div>
+      <div class="box-content">
+  
+         
+      </div>
+  </div>
+</div>
+
+
+
+ --> #}
+
+    <script src="static/js/index.js"></script>
+</body>
+</html>

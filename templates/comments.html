@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comment Analyzer</title>
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="static/css/header_footer.css">
+
+  <style>
+    .image-container {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">Comment Analyzer </a>
+    <input type="checkbox" id="click">
+    <label for="click" class="menu-btn">
+      <i class="fas fa-bars"></i>
+    </label>
+  </nav>
+  <div>
+
+{% if comments_dict['fanComments'] and comments_dict['fanComments']|length > 0  %}
+    <div>
+      <h3>Fan Comments</h3>
+      {% for comment in comments_dict['fanComments'] %}
+      <div class="box-container">
+        <div id="{{ comment }}">
+          <div class="box-header">{{ comment }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+{% endif %}
+
+
+{% if comments_dict['hateSpeech'] and comments_dict['hateSpeech']|length > 0  %}
+    <div>
+      <h3>Hate Speech</h3>
+      {% for comment in comments_dict['hateSpeech'] %}
+      <div class="box-container">
+        <div id="{{ comment }}">
+          <div class="box-header">{{ comment }}</div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+{% endif %}
+
+
+{% if comments_dict['positive'] and comments_dict['positive']|length > 0  %}
+    <div>
+      <h3>Positive Comments</h3>
+      {% for comment in comments_dict['positive'] %}
+      <div class="box-container">
+        <div id="{{ comment }}">
+          <div class="box-header">{{ comment }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+{% endif %}
+
+{% if comments_dict['questions'] and comments_dict['questions']|length > 0  %}
+    <div>
+      <h3>Questions</h3>
+      {% for comment in comments_dict['questions'] %}
+      <div class="box-container">
+        <div id="{{ comment }}">
+          <div class="box-header">{{ comment }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+{% endif %}
+
+{% if comments_dict['spam'] and comments_dict['spam']|length > 0  %}
+    <div>
+      <h3>Spam</h3>
+      {% for comment in comments_dict['spam'] %}
+      <div class="box-container">
+        <div id="{{ comment }}">
+          <div class="box-header">{{ comment }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+{% endif %}
+
+{% if comments_dict['suggestions'] and comments_dict['suggestions']|length > 0  %}
+    <div>
+      <h3>Suggestions</h3>
+      {% for comment in comments_dict['suggestions'] %}
+      <div class="box-container">
+        <div id="{{ comment }}">
+          <div class="box-header">{{ comment }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+{% endif %}
+  </div>
+</body>
+
+</html>

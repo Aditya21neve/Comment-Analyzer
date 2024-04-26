@@ -9,14 +9,14 @@
       var targetBoxId = checkbox.getAttribute('data-target');
       var targetBox = document.getElementById(targetBoxId);
 
-      // // Check if the checkbox is checked
-      // if (checkbox.checked) {
-      //   // Display the corresponding box
-      //   targetBox.style.display = 'block';
-      // } else {
-      //   // Hide the corresponding box
-      //   targetBox.style.display = 'none';
-      // }
+      // Check if the checkbox is checked
+      if (checkbox.checked) {
+        // Display the corresponding box
+        targetBox.style.display = 'block';
+      } else {
+        // Hide the corresponding box
+        targetBox.style.display = 'none';
+      }
     });
   }
 

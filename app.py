@@ -1,7 +1,8 @@
 import logging
-import os
+import os   
 import shutil
-from flask import Flask, send_file, send_from_directory, render_template, request
+import csv
+from flask import Flask, send_file, send_from_directory,redirect, render_template, request
 from model import process_video_comments, get_all_video_comments, API_KEY, write_to_csv,sort_comment_csv
 
 app = Flask(__name__)
@@ -27,6 +28,65 @@ def send_css(path):
 def send_js(path):
     return send_from_directory('static/js', path)
 
+@app.route('/sort-videos', methods=['POST'])
+def sortVideos():
+    if request.method == 'POST':
+        fanComments = "fanComments" in request.form
+        hateSpeech = "hateSpeech" in request.form
+        positive = "positive" in request.form
+        questions = "questions" in request.form
+        spam = "spam" in request.form
+        suggestions = "suggestions" in request.form
+        print(fanComments,hateSpeech, positive, questions,spam, suggestions)
+        comments_dict = {}
+        fan_comments_list = []
+        hate_speech_list = []
+        positive_list = []
+        questions_list = []
+        spam_list = []
+        suggestions_list = []
+        # comments_path = os.path.join(os.getcwd(), '/userdata')
+        if fanComments: 
+            with open(os.path.join('userdata', 'fan_comments', 'fan_comments.csv'), 'r', encoding='cp437') as file:
+                fan_comments_list = file.read().splitlines()
+                comments_dict['fanComments'] = fan_comments_list
+
+
+        if hateSpeech: 
+            with open(os.path.join('userdata', 'hate_speech', 'hate_speech.csv'), 'r', encoding='cp437') as file:
+                hate_speech_list = file.read().splitlines()
+                comments_dict['hateSpeech'] = hate_speech_list
+
+        if positive: 
+            with open(os.path.join('userdata', 'positive', 'positive.csv'), 'r', encoding='cp437') as file:
+                positive_list = file.read().splitlines()
+                comments_dict['positive'] = positive_list
+
+        if questions: 
+            with open(os.path.join('userdata', 'questions', 'questions.csv'), 'r', encoding='cp437') as file:
+                print(file, 'cscfile')
+                questions_list = file.read().splitlines()
+                comments_dict['questions'] = questions_list
+                # questions_reader = csv.reader(file)
+                # next(questions_reader)  # Skip header
+                # for row in questions_reader:
+                #     questions_list.append(row)
+                    # print(questions_list, 'questions')
+
+        if spam: 
+            with open(os.path.join('userdata', 'spam', 'spam.csv'), 'r', encoding='cp437') as file:
+                spam_list = file.read().splitlines()
+                comments_dict['spam'] = spam_list
+
+        if suggestions: 
+            with open(os.path.join('userdata', 'suggestions', 'suggestions.csv'), 'r', encoding='cp437') as file:
+                suggestions_list = file.read().splitlines()
+                comments_dict['suggestions'] = suggestions_list
+
+        return render_template("comments.html", comments_dict=comments_dict)
+            
+
+
 @app.route('/get_comments', methods=['POST'])
 def get_comments():
     if request.method == 'POST':
@@ -44,7 +104,8 @@ def get_comments():
             sort_comment_csv(comments_file, category_word_list_pairs)
            
 
-            return "Comments retrieved and saved successfully!"
+            # return "Comments retrieved and saved successfully!"
+            return render_template('sort.html', category_comments=category_word_list_pairs)
         else:
             flash('Invalid YouTube URL. Please provide a valid URL.', 'error')
             return redirect(url_for('index'))
